@@ -1,0 +1,361 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.buy-queue .progress-order,
+.sell-queue .progress-order {
+  min-height: 20px;
+  max-height: 20px;
+  background-color: transparent;
+}
+.buy-queue .progress-order:hover > div,
+.sell-queue .progress-order:hover > div {
+  font-weight: 500;
+}
+.buy-queue .row .tooltip,
+.sell-queue .row .tooltip {
+  display: none;
+  z-index: 9;
+}
+.buy-queue .row:hover .tooltip,
+.sell-queue .row:hover .tooltip {
+  display: block;
+}
+
+.sell-queue .progress-order:hover {
+  border-top: 1px dashed var(--progress-order-border);
+}
+.sell-queue .progress-order:hover, .sell-queue .progress-order:hover ~ div {
+  background-color: var(--container-order-background) !important;
+}
+
+.buy-queue:hover {
+  background-color: var(--container-order-background);
+}
+.buy-queue .progress-order:hover {
+  border-bottom: 1px dashed var(--progress-order-border);
+}
+.buy-queue .progress-order:hover ~ div {
+  background-color: var(--progress-order-background) !important;
+}
+
+.stack-overflow::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.dir-ltr {
+  direction: ltr !important;
+}
+
+.dir-rtl {
+  direction: rtl !important;
+}
+
+.grid-template:not(.compact):not(.high-compact) {
+  grid-template-columns: 1fr minmax(253px, 320px) minmax(510px, 880px) minmax(253px, 320px) 1fr;
+  grid-template-rows: minmax(68px, auto) 68px 320px 160px 1.15fr auto 285px 24px;
+  grid-template-areas: "header header header header header" "left subHeader subHeader market right" "left orderbook chart market right" "left orderbook chart trades right" "left orderbook orderform trades right" "left orderbook orderform marketActivity right" "left basictable basictable basictable right" "footer footer footer footer footer";
+}
+
+.grid-template.compact {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: minmax(64px, auto) minmax(64px, auto) 1.6fr 1.15fr 1fr 24px;
+  grid-template-areas: "header header header" "switch switch switch" "chart chart orderform" "trades orderbook orderform" "userinfo userinfo orderform" "footer footer footer";
+}
+
+.grid-template:not(.compact):not(.high-compact) {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  display: grid;
+  gap: 1px;
+}
+.grid-template:not(.compact):not(.high-compact) .grid-header {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  grid-area: header/header/header/header;
+  z-index: 10;
+}
+.grid-template:not(.compact):not(.high-compact) .grid-subHeader {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  height: 100%;
+  width: 100%;
+  grid-area: subHeader/subHeader/subHeader/subHeader;
+  font-size: 14px;
+}
+.grid-template:not(.compact):not(.high-compact) .grid-order {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  grid-area: basictable/basictable/basictable/basictable;
+  font-size: 14px;
+  flex-direction: column;
+  overflow: hidden;
+}
+.grid-template:not(.compact):not(.high-compact) .grid-orderbook {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  grid-area: orderbook/orderbook/orderbook/orderbook;
+  position: relative;
+}
+.grid-template:not(.compact):not(.high-compact) .grid-chart {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  grid-area: chart/chart/chart/chart;
+  position: relative;
+}
+.grid-template:not(.compact):not(.high-compact) .grid-orderform {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  grid-area: orderform/orderform/orderform/orderform;
+}
+.grid-template:not(.compact):not(.high-compact) .grid-trades {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  grid-area: trades/trades/trades/trades;
+  z-index: auto;
+  position: relative;
+}
+.grid-template:not(.compact):not(.high-compact) .grid-market {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  grid-area: market/market/market/market;
+}
+.grid-template:not(.compact):not(.high-compact) .grid-marketActivity {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  grid-area: marketActivity/marketActivity/marketActivity/marketActivity;
+}
+.grid-template:not(.compact):not(.high-compact) .grid-right {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  grid-area: right/right/right/right;
+}
+.grid-template:not(.compact):not(.high-compact) .grid-left {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  grid-area: left/left/left/left;
+}
+
+.grid-template.compact {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  min-height: 1088px;
+  gap: 4px;
+}
+.grid-template.compact .grid-header {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  grid-area: header/header/header/header;
+  z-index: 10;
+}
+.grid-template.compact .grid-chart {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  grid-area: chart/chart/chart/chart;
+  position: relative;
+}
+.grid-template.compact .grid-orderform {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  overflow: hidden auto;
+  position: relative;
+  z-index: 1;
+  bottom: 0px;
+  height: 100%;
+  grid-area: orderform/orderform/orderform/orderform;
+}
+.grid-template.compact .grid-order {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  grid-area: userinfo/userinfo/userinfo/userinfo;
+  z-index: auto;
+  position: relative;
+}
+.grid-template.compact .grid-orderbook {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  grid-area: orderbook/orderbook/orderbook/orderbook;
+  position: relative;
+}
+.grid-template.compact .grid-subHeader {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  grid-area: switch/switch/switch/switch;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.grid-template.compact .grid-trades {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  grid-area: trades/trades/trades/trades;
+}
+
+.grid-template.high-compact {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  display: grid;
+  width: 100vw;
+  height: auto;
+  gap: 4px;
+  grid-template-columns: 100vw;
+  grid-template-rows: minmax(68px, auto) auto minmax(68px, auto) 405px 219px auto;
+  grid-template-areas: "header" "delist" "switch" "charts" "userinfo" "orderform";
+}
+.grid-template.high-compact .grid-header {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  grid-area: header/header/header/header;
+  z-index: 10;
+}
+.grid-template.high-compact .grid-subHeader {
+  box-sizing: border-box;
+  margin: -2px 0px 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #161a1e;
+  grid-area: switch/switch/switch/switch;
+}
+.grid-template.high-compact .grid-order {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  grid-area: userinfo/userinfo/userinfo/userinfo;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+  background-color: #161a1e;
+  z-index: auto;
+  position: relative;
+}
+.grid-template.high-compact .grid-chart {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  height: 100%;
+  grid-area: charts/charts/charts/charts;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+  background-color: #161a1e;
+  z-index: auto;
+  position: relative;
+}
+.grid-template.high-compact .grid-orderform {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  overflow: hidden auto;
+  position: relative;
+  z-index: 1;
+  bottom: 0px;
+  height: 100%;
+  background-color: #1e2026;
+  grid-area: orderform/orderform/orderform/orderform;
+}
+
+@media only screen and (max-width: 768px) {
+  .grid-template {
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    display: grid;
+    width: 100vw;
+    height: auto;
+    min-height: 930px;
+    gap: 4px;
+    grid-template-columns: 100vw;
+    grid-template-rows: minmax(64px, auto) auto minmax(150px, auto) 405px 1fr 72px;
+    grid-template-areas: "header" "delist" "switch" "charts" "userinfo" "orderform";
+  }
+}
+.scrollBar:hover::-webkit-scrollbar,
+::-webkit-scrollbar {
+  width: 5px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+  height: 90px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,67 @@
+html:not(.dark) {
+	--progress-order-background: rgb(250, 250, 250);
+	--container-order-background: rgb(245, 245, 245);
+	--progress-order-border: rgb(112, 122, 138);
+	--scrollbar-thumb: rgba(0, 0, 0, 0.1);
+}
+
+html.dark {
+	--container-order-background: rgb(43, 49, 57);
+	--progress-order-background: rgb(22, 26, 30);
+	--progress-order-border: rgb(132, 142, 156);
+	--scrollbar-thumb: rgb(94, 102, 115);
+}
+
+body {
+	overflow-x: hidden;
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.spinner-page-loading {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+}
+
+.spinner-page-loading > div {
+	display: inline-block;
+	position: absolute;
+	left: 8px;
+	width: 16px;
+	background-color: rgb(251, 191, 36);
+	animation: page-loading 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.spinner-page-loading > div:nth-child(1) {
+	left: 8px;
+	animation-delay: -0.24s;
+}
+
+.spinner-page-loading > div:nth-child(2) {
+	left: 32px;
+	animation-delay: -0.12s;
+}
+
+.spinner-page-loading > div:nth-child(3) {
+	left: 56px;
+	animation-delay: 0;
+}
+
+@keyframes animation-spinner {
+	0%,
+	40%,
+	100% {
+		-webkit-transform: scaleY(0.4);
+		-ms-transform: scaleY(0.4);
+		transform: scaleY(0.4);
+	}
+
+	20% {
+		-webkit-transform: scaleY(1);
+		-ms-transform: scaleY(1);
+		transform: scaleY(1);
+	}
+}

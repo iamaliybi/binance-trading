@@ -1,0 +1,71 @@
+.buy-queue,
+.sell-queue {
+	.progress-order {
+		min-height: 20px;
+		max-height: 20px;
+		background-color: transparent;
+
+		&:hover {
+			& > div {
+				font-weight: 500;
+			}
+		}
+	}
+
+	.row {
+		& .tooltip {
+			display: none;
+			z-index: 9;
+		}
+
+		&:hover .tooltip {
+			display: block;
+		}
+	}
+}
+
+.sell-queue {
+	.progress-order {
+		&:hover {
+			border-top: 1px dashed var(--progress-order-border);
+		}
+
+		&:hover,
+		&:hover ~ div {
+			background-color: var(--container-order-background) !important;
+		}
+	}
+}
+
+.buy-queue {
+	&:hover {
+		background-color: var(--container-order-background);
+	}
+
+	.progress-order {
+		&:hover {
+			border-bottom: 1px dashed var(--progress-order-border);
+		}
+
+		&:hover ~ div {
+			background-color: var(--progress-order-background) !important;
+		}
+	}
+}
+
+.stack-overflow {
+	&::-webkit-scrollbar {
+		width: 0;
+		display: none;
+	}
+}
+
+.dir-ltr {
+	direction: ltr !important;
+}
+
+.dir-rtl {
+	direction: rtl !important;
+}
+
+@import "grid";
